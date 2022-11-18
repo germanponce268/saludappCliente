@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'saludappCliente';
+
+  checkForm = this.formBuilder.group({
+    nombre:'',
+    apellido:'',
+    dni:''
+  })
+  constructor(private formBuilder:FormBuilder){
+  }
+
+
+  onSubmit(){
+    console.log(this.checkForm.value);
+  }
+
 }

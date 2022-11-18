@@ -1,23 +1,27 @@
 <div class="grid p-fluid">
-    <div class="col-12 md:col-4">
-        <div class="p-inputgroup">
-            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" pInputText placeholder="Username">         
+    <form  [formGroup]="checkForm" (ngSubmit)="onSubmit()">
+        <div class="col-12 md:col-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" pInputText placeholder="Nombre" formControlName="nombre">         
+            </div>
         </div>
-    </div>
-    
-    <div class="col-12 md:col-4">
-        <div class="p-inputgroup">
-            <span class="p-inputgroup-addon">$</span>
-            <input type="text" pInputText placeholder="Price">   
-            <span class="p-inputgroup-addon">.00</span>      
+        
+        <div class="col-12 md:col-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"></span>
+                <input type="text" pInputText placeholder="Apellido" formControlName="apellido">   
+                <span class="p-inputgroup-addon"></span>      
+            </div>
         </div>
-    </div>
-            
-    <div class="col-12 md:col-4">
-        <div class="p-inputgroup">
-            <span class="p-inputgroup-addon">www</span>
-            <input type="text" pInputText placeholder="Website">      
+                
+        <div class="col-12 md:col-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"></span>
+                <input type="text" pInputText placeholder="D.N.I." fromControlName="dni">      
+            </div>
         </div>
-    </div>
+
+        <button type="submit">Submit</button>
+    </form>
 </div>
