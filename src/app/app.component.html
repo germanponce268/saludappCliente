@@ -1,27 +1,3 @@
-<div class="grid p-fluid">
-    <form  [formGroup]="checkForm" (ngSubmit)="onSubmit()">
-        <div class="col-12 md:col-4">
-            <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                <input type="text" pInputText placeholder="Nombre" formControlName="nombre">         
-            </div>
-        </div>
-        
-        <div class="col-12 md:col-4">
-            <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"></span>
-                <input type="text" pInputText placeholder="Apellido" formControlName="apellido">   
-                <span class="p-inputgroup-addon"></span>      
-            </div>
-        </div>
-                
-        <div class="col-12 md:col-4">
-            <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"></span>
-                <input type="number" pInputText placeholder="D.N.I." fromControlName="dni">      
-            </div>
-        </div>
 
-        <button type="submit">Submit</button>
-    </form>
-</div>
+<app-formulario></app-formulario>
+<app-listado-pacientes></app-listado-pacientes>

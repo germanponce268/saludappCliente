@@ -16,4 +16,8 @@ export class Service{
             'http://localhost:8080/servicio/savePaciente',paciente
         ).subscribe(resp=>console.log(resp));
     }
+
+    getPacientes(){
+        return this.http.get<Paciente[]>('http://localhost:8080/servicio/listaPacientes');
+    }
 }

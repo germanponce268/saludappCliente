@@ -1,0 +1,27 @@
+<div class="grid p-fluid" >
+    <form  [formGroup]="checkForm" (ngSubmit)="onSubmit()" class="grid p-fluid" >
+        <div class="col-12 md:col-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" pInputText placeholder="Nombre" formControlName="nombre">         
+            </div>
+        </div>
+        
+        <div class="col-12 md:col-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"></span>
+                <input type="text" pInputText placeholder="Apellido" formControlName="apellido">   
+                <span class="p-inputgroup-addon"></span>      
+            </div>
+        </div>
+                
+        <div class="col-12 md:col-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"></span>
+                <input type="text" pInputText placeholder="D.N.I." formControlName="dni">      
+            </div>
+        </div>
+
+        <button type="submit" pButton  label="Primary" class="p-button-outlined"></button>
+    </form>
+</div>

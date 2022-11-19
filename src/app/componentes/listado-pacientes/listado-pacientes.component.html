@@ -1,0 +1,20 @@
+<!-- <ul *ngFor="let paciente of listaPacientes">
+    <li>{{paciente.nombre}}</li>    
+</ul>
+ -->
+<p-table [value]="listaPacientes" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-paciente>
+        <tr>
+            <td>{{paciente.nombre}}</td>
+            <td>{{paciente.apellido}}</td>
+            <td>{{paciente.dni}}</td>
+            </tr>
+    </ng-template>
+</p-table>
