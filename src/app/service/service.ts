@@ -20,4 +20,9 @@ export class Service{
     getPacientes(){
         return this.http.get<Paciente[]>('http://localhost:8080/servicio/listaPacientes');
     }
+
+    deletePaciente(paciente:Paciente){
+        const url = `http://localhost:8080/servicio/eliminarPaciente/${paciente.id}`;
+       return this.http.delete<Paciente>(url);
+    }
 }

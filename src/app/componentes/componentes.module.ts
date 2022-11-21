@@ -4,13 +4,15 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ListadoPacientesComponent } from './listado-pacientes/listado-pacientes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
 
 
 
 @NgModule({
   declarations: [
     FormularioComponent,
-    ListadoPacientesComponent
+    ListadoPacientesComponent,
+    MenuBarComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports:[
     FormularioComponent,
-    ListadoPacientesComponent
+    ListadoPacientesComponent,
+    MenuBarComponent
   ]
 })
 export class ComponentesModule { }

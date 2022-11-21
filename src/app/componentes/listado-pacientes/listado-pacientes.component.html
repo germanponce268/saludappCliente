@@ -1,20 +1,55 @@
-<!-- <ul *ngFor="let paciente of listaPacientes">
-    <li>{{paciente.nombre}}</li>    
-</ul>
- -->
-<p-table [value]="listaPacientes" [tableStyle]="{'min-width': '50rem'}">
+<p-contextMenu #cm [model]="items"></p-contextMenu>
+
+<p-table [columns]="cols" [value]="listaPacientes" [paginator]="true">
     <ng-template pTemplate="header">
         <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>DNI</th>
+            <th *ngFor="let col of cols">
+                {{col.header}}
+            </th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-paciente>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
-            <td>{{paciente.nombre}}</td>
-            <td>{{paciente.apellido}}</td>
-            <td>{{paciente.dni}}</td>
-            </tr>
+            <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-table 
+        [columns]="cols" 
+        [value]="listaPacientes" 
+        selectionMode="single" 
+        [(selection)]="selected" 
+        (onRowSelect)="seleccion($event)"
+        [contextMenu]="cm"
+        [(contextMenuSelection)]="selected"
+        dataKey="dni">
+    <ng-template pTemplate="caption">
+        List of Cars
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-paciente let-columns="columns">
+        <tr [pSelectableRow]="paciente" [pContextMenuRow]="paciente">
+            <td *ngFor="let col of columns">
+            {{paciente[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer" let-columns>
+        <tr>
+            <td *ngFor="let col of columns">
+            {{col.header}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        There are {{listaPacientes?.length}} cars
     </ng-template>
 </p-table>
