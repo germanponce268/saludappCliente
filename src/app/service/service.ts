@@ -23,6 +23,6 @@ export class Service{
 
     deletePaciente(paciente:Paciente){
         const url = `http://localhost:8080/servicio/eliminarPaciente/${paciente.id}`;
-       return this.http.delete<Paciente>(url);
+       return this.http.delete<Paciente[]>(url);
     }
 }

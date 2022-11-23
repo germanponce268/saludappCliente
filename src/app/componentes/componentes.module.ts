@@ -5,6 +5,8 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { ListadoPacientesComponent } from './listado-pacientes/listado-pacientes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { MainComponent } from './main/main.component';
+import { VerPacienteComponent } from './ver-paciente/ver-paciente.component';
 
 
 
@@ -12,7 +14,9 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
   declarations: [
     FormularioComponent,
     ListadoPacientesComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    MainComponent,
+    VerPacienteComponent
   ],
   imports: [
     CommonModule,

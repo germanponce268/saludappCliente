@@ -13,6 +13,8 @@ export class ListadoPacientesComponent implements OnInit {
   public listaPacientes:Paciente[]=[];
   
   public selected!:Paciente;
+
+  public arrayTest:string[]=['1','2','3'];
   
   public cols:any[]=[];
 
@@ -28,6 +30,7 @@ export class ListadoPacientesComponent implements OnInit {
   constructor(private service: Service) {
     this.service.getPacientes()
       .subscribe(resp=>{    
+        console.log('server', resp);
         this.listaPacientes = [...resp];
         console.log('este',this.listaPacientes);
       })
@@ -44,7 +47,8 @@ export class ListadoPacientesComponent implements OnInit {
       {
         label:'Ver',
         icon:'pi pi-search',
-        command: ()=>this.ver(this.selected)
+        command: ()=>this.ver(this.selected),
+        routerLink:'verPaciente'
       },
       {
         label:'Eliminar',
@@ -66,8 +70,8 @@ export class ListadoPacientesComponent implements OnInit {
   }
 
   eliminar(paciente:Paciente){
-    this.service.deletePaciente(paciente)
-      .subscribe(resp=>console.log(resp))
+   this.service.deletePaciente(paciente)
+   .subscribe(resp => this.listaPacientes = [...resp])
   }
 
 }

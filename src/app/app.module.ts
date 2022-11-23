@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentesModule } from './componentes/componentes.module';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { AppRouterModule } from 'src/app-router.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
     CommonModule,
     HttpClientModule,
     ComponentesModule,
-    PrimeNgModule
+    PrimeNgModule,
+    AppRouterModule
     
   ],
   providers: [Service,HttpClient],

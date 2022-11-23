@@ -15,10 +15,15 @@ export class MenuBarComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
+        label:'Inicio',
+        routerLink:'/'
+      },
+      {
         label:'Guardia',
         items:[{
           label:'Ingreso',
-          icon:'pi pi-plus'
+          icon:'pi pi-plus',
+          routerLink:'listadoPacientes'
         }]
       },
       {

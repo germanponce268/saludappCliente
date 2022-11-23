@@ -1,22 +1,5 @@
 <p-contextMenu #cm [model]="items"></p-contextMenu>
-
-<p-table [columns]="cols" [value]="listaPacientes" [paginator]="true">
-    <ng-template pTemplate="header">
-        <tr>
-            <th *ngFor="let col of cols">
-                {{col.header}}
-            </th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
-            <td *ngFor="let col of columns">
-                    {{rowData[col.field]}}
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
-<p-table 
+<!-- <p-table 
         [columns]="cols" 
         [value]="listaPacientes" 
         selectionMode="single" 
@@ -24,9 +7,10 @@
         (onRowSelect)="seleccion($event)"
         [contextMenu]="cm"
         [(contextMenuSelection)]="selected"
-        dataKey="dni">
+        dataKey="dni"
+        [paginator]="true">
     <ng-template pTemplate="caption">
-        List of Cars
+        Lista de Pacientes
     </ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
@@ -35,10 +19,10 @@
             </th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-paciente let-columns="columns">
-        <tr [pSelectableRow]="paciente" [pContextMenuRow]="paciente">
+    <ng-template pTemplate="body"  let-columns>
+        <tr >
             <td *ngFor="let col of columns">
-            {{paciente[col.field]}}
+                {{col.header}}
             </td>
         </tr>
     </ng-template>
@@ -50,6 +34,33 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="summary">
-        There are {{listaPacientes?.length}} cars
+        Hay {{listaPacientes?.length}} pacientes
+    </ng-template>
+</p-table> -->
+<p-table [value]="listaPacientes"
+         [columns]="cols"
+         [(contextMenuSelection)]="selected"
+         [contextMenu]="cm"
+         selectionMode="single"
+         (onRowSelect)="seleccion($event)"
+         dataKey="id"
+         >
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+        <tr [pContextMenuRow]="rowData">
+            <td>
+                {{rowData.nombre}}
+            </td>
+            <td>{{rowData.apellido}}</td>
+            <td>
+                {{rowData.dni}}
+            </td>
+        </tr>
     </ng-template>
 </p-table>
