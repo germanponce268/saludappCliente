@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Paciente } from 'src/app/interfaces/paciente.interface';
 import { Service } from 'src/app/service/service';
+import { faIdCard } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -11,8 +12,9 @@ export class FormularioComponent implements OnInit {
 
   checkForm!:FormGroup;
   paciente!:Paciente;
-  constructor( private service:Service){
-    
+  faCoffee=faIdCard;
+  constructor( private service:Service){  
+
   }
   ngOnInit(): void {
     
@@ -27,7 +29,10 @@ export class FormularioComponent implements OnInit {
 
   onSubmit(){
     const {nombre,apellido, dni} = this.checkForm.value;
-    this.service.savePaciente(nombre,apellido,dni);
+    this.service.savePaciente(nombre,apellido,dni)
+      .subscribe(resp=> {
+        this.service.setListadoPacientes(resp);
+      });
   }
 
 }

@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentesModule } from './componentes/componentes.module';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AppRouterModule } from 'src/app-router.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRouterModule } from 'src/app-router.module';
     HttpClientModule,
     ComponentesModule,
     PrimeNgModule,
-    AppRouterModule
+    AppRouterModule,
+    FontAwesomeModule
     
   ],
   providers: [Service,HttpClient],

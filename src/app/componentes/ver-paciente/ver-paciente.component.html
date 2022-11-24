@@ -1,1 +1,46 @@
-<p>ver-paciente works!</p>
+<div class="grid">
+    <div class="p-col-4">
+        <p-card class="p-card" header="Info Paciente">
+            <form 
+                [formGroup]="formEdit"
+                (ngSubmit)="editar()">
+                <input
+                    class="edit"
+                    formControlName="nombre" 
+                    type="text" 
+                    pInputText 
+                    [readOnly]="true"/>
+                    <br>
+                <input
+                    class="edit"
+                    formControlName="apellido" 
+                    type="text" 
+                    pInputText 
+                    [readOnly]="true"/>
+                    <br>
+                <input
+                    class="edit"
+                    formControlName="dni" 
+                    type="text" 
+                    pInputText 
+                    [readOnly]="true"/>
+                    <br>
+                <button
+                    id="editar"
+                    pButton  
+                    type="submit" 
+                    [label]="editarGuardar" 
+                    class="p-button-outlined p-button-rounded"
+    
+                    ></button>
+                    <button
+                    pButton  
+                    type="button" 
+                    label="Cancelar" 
+                    class="p-button-outlined p-button-rounded"
+    
+                    ></button>
+            </form>  
+        </p-card>
+    </div>
+</div>

@@ -13,8 +13,6 @@ export class ListadoPacientesComponent implements OnInit {
   public listaPacientes:Paciente[]=[];
   
   public selected!:Paciente;
-
-  public arrayTest:string[]=['1','2','3'];
   
   public cols:any[]=[];
 
@@ -31,8 +29,9 @@ export class ListadoPacientesComponent implements OnInit {
     this.service.getPacientes()
       .subscribe(resp=>{    
         console.log('server', resp);
-        this.listaPacientes = [...resp];
-        console.log('este',this.listaPacientes);
+        this.service.setListadoPacientes(resp) ;
+        this.listaPacientes = this.service.getListadoPacientes;
+        console.log('este',this.service.getListadoPacientes);
       })
    }
 
@@ -66,6 +65,7 @@ export class ListadoPacientesComponent implements OnInit {
 
 
   ver(event:Paciente){
+    this.service.editarPaciente(event);
     console.log('ver' , event)
   }
 

@@ -4,7 +4,10 @@ import { ButtonModule } from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import {MenubarModule} from 'primeng/menubar';
 import {ContextMenuModule} from 'primeng/contextmenu';
-
+import { InputTextModule } from 'primeng/inputtext';
+import {CardModule} from 'primeng/card';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+FontAwesomeModule
 @NgModule({
   declarations: [],
   imports: [
@@ -12,13 +15,20 @@ import {ContextMenuModule} from 'primeng/contextmenu';
     ButtonModule,
     TableModule,
     MenubarModule,
-    ContextMenuModule
+    ContextMenuModule,
+    InputTextModule,
+    CardModule,
+    FontAwesomeModule
+    
   ],
   exports:[
     ButtonModule,
     TableModule,
     MenubarModule,
-    ContextMenuModule
+    ContextMenuModule,
+    CardModule,
+    InputTextModule,
+    FontAwesomeModule
   ]
 })
 export class PrimeNgModule { }
