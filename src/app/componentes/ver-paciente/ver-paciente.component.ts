@@ -21,6 +21,7 @@ export class VerPacienteComponent implements OnInit {
    iconEdit=faPenSquare;
   constructor(private service:Service) {
     this.toEditPaciente = this.service.storedPaciente;
+    console.log('chuchon',this.toEditPaciente);
     this.editarGuardar = 'Editar';
    }
   
@@ -28,6 +29,7 @@ export class VerPacienteComponent implements OnInit {
 
     this.formEdit = new FormGroup(
       {
+        id: new FormControl(this.toEditPaciente.id),
         nombre: new FormControl(this.toEditPaciente.nombre),
         apellido: new FormControl(this.toEditPaciente.apellido),
         dni: new FormControl(this.toEditPaciente.dni)
@@ -44,22 +46,23 @@ export class VerPacienteComponent implements OnInit {
     input.forEach(e=>{
       e.removeAttribute('readonly');
     })
-    
+    this.formEdit.valueChanges.subscribe(resp=>{
+
+      console.log('hubo cambios',resp);
+
+      this.toEditPaciente = resp;
+    })
     console.log('Editando',btn);
     if(this.editarGuardar === 'Editar'){
       this.editarGuardar = 'Guardar';
     }
-    const {nombre, apellido, dni} = this.toEditPaciente;
-      const laPromesa = new Promise((resolve, reject)=>{
-        if(this.editarGuardar==='Guardar'){
-          resolve(this.service.savePaciente(nombre,apellido,dni));
-        }else{
-          reject('No se que onda jaja');
-        }
-      })
-      laPromesa.then((mira)=>{
-        console.log('mira la promesa',mira);
-      })
+    if(this.editarGuardar === 'Guardar'){
+      console.log('del for' ,this.toEditPaciente);
+      this.service.editarPaciente(this.toEditPaciente)
+        .subscribe(resp=>{
+          console.log('delservice',resp)
+        });
+    }
 
          
     console.log('Editando',btn);

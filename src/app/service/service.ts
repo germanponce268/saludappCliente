@@ -38,7 +38,9 @@ export class Service{
     }
 
     editarPaciente(paciente:Paciente){
+        const url = `http://localhost:8080/servicio/updatePaciente/${paciente.id}`;
         this.storedPaciente = paciente;
         console.log('mira mira, el paciente', paciente)
+        return this.http.put(url, paciente);
     }
 }
