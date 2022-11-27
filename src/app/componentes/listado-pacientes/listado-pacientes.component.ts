@@ -44,6 +44,11 @@ export class ListadoPacientesComponent implements OnInit {
 
     this.items = [
       {
+        label:'Agregar',
+        icon:'pi pi-plus',
+        routerLink:'formulario'
+      },
+      {
         label:'Ver',
         icon:'pi pi-search',
         command: ()=>this.ver(this.selected),

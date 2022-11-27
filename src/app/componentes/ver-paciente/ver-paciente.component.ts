@@ -4,6 +4,7 @@ import { Service } from 'src/app/service/service';
 import {faPenSquare} from '@fortawesome/free-solid-svg-icons';
 import { FormControl, FormGroup } from '@angular/forms';
 import { faProductHunt } from '@fortawesome/free-brands-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ver-paciente',
@@ -12,6 +13,8 @@ import { faProductHunt } from '@fortawesome/free-brands-svg-icons';
 })
 export class VerPacienteComponent implements OnInit {
 
+  private able!:boolean;
+
   public toEditPaciente!:Paciente;
 
   public formEdit!:FormGroup;
@@ -19,7 +22,7 @@ export class VerPacienteComponent implements OnInit {
   public editarGuardar!:string;
 
    iconEdit=faPenSquare;
-  constructor(private service:Service) {
+  constructor(private service:Service, private router:Router) {
     this.toEditPaciente = this.service.storedPaciente;
     console.log('chuchon',this.toEditPaciente);
     this.editarGuardar = 'Editar';
@@ -53,18 +56,17 @@ export class VerPacienteComponent implements OnInit {
       this.toEditPaciente = resp;
     })
     console.log('Editando',btn);
+    if(this.editarGuardar==="Guardar"){
+      this.service.savePacienteQueue(this.toEditPaciente)
+        .subscribe(resp=>{
+          this.service.setListadoPacientes(resp);
+          this.router.navigate(['/listadoPacientes'])
+        })
+    }
     if(this.editarGuardar === 'Editar'){
       this.editarGuardar = 'Guardar';
-    }
-    if(this.editarGuardar === 'Guardar'){
-      console.log('del for' ,this.toEditPaciente);
-      this.service.editarPaciente(this.toEditPaciente)
-        .subscribe(resp=>{
-          console.log('delservice',resp)
-        });
-    }
 
-         
+    }
     console.log('Editando',btn);
   }
 }

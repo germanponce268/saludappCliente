@@ -17,7 +17,7 @@ const routes: Route[]=[
       component:ListadoPacientesComponent
     },
     {
-      path:'formulario',
+      path:'listadoPacientes/formulario',
       component:FormularioComponent
     },
     {

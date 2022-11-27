@@ -23,9 +23,12 @@ export class Service{
 
         const paciente = {nombre, apellido, dni};
 
-        return this.http.post<Paciente[]>(
-            'http://localhost:8080/servicio/savePaciente',paciente
-        );
+        return this.http.post<Paciente[]>('http://localhost:8080/servicio/savePaciente',paciente);
+    }
+
+    savePacienteQueue(paciente:Paciente){
+        const url = 'http://localhost:8080/servicio/savePacienteQueue';
+       return  this.http.post<Paciente[]>(url, paciente);
     }
 
     getPacientes(){
